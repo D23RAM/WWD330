@@ -3,6 +3,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "/WWD330/",
   root: "src/",
 
   build: {
