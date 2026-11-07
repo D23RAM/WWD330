@@ -74,9 +74,9 @@ export default class ProductList {
           aria-pressed="${isFavorite}"
         >${isFavorite ? "♥" : "♡"}</button>
 
-        <a href="/product_pages/index.html?product=${product.Id}">
+        <a href="${import.meta.env.BASE_URL}product_pages/index.html?product=${product.Id}">
           <img
-            src="${product.Image.replace("../images/", "/images/")}" onerror="this.onerror=null; this.src='/images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg';"
+            src="${import.meta.env.BASE_URL}${product.Image.replace("../images/", "images/")}" onerror="this.onerror=null; this.src='${import.meta.env.BASE_URL}images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg';"
             alt="${product.Name}"
           />
           <h3>${product.Brand.Name}</h3>

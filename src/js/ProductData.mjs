@@ -10,7 +10,7 @@ function convertToJson(response) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `/json/${this.category}.json`;
+    this.path = `${import.meta.env.BASE_URL}json/${this.category}.json`;
   }
 
   async getData() {
