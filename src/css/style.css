@@ -261,3 +261,31 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+/* Favorites Feature */
+.product-card {
+  position: relative;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #555;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.favorite-button.is-favorite {
+  color: #d62828;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
