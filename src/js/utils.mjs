@@ -46,3 +46,46 @@ export function renderListWithTemplate(
   const htmlString = list.map(templateFn).join("");
   parentElement.insertAdjacentHTML(position, htmlString);
 }
+// Load an HTML template from a file
+export async function loadTemplate(path) {
+  const response = await fetch(path);
+
+  if (!response.ok) {
+    throw new Error(`Could not load template: ${path}`);
+  }
+
+  return await response.text();
+}
+
+// Render a template into a parent element
+export function renderWithTemplate(
+  template,
+  parentElement,
+  data,
+  callback
+) {
+  parentElement.innerHTML = template;
+
+  if (callback) {
+    callback(data);
+  }
+}
+
+// Load the shared header and footer
+export async function loadHeaderFooter() {
+  const base = import.meta.env.BASE_URL;
+
+  const headerElement = document.querySelector("header");
+  const footerElement = document.querySelector("footer");
+
+  const headerTemplate = await loadTemplate(
+    `${base}partials/header.html`
+  );
+
+  const footerTemplate = await loadTemplate(
+    `${base}partials/footer.html`
+  );
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}

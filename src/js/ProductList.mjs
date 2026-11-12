@@ -1,6 +1,21 @@
+
 import { renderListWithTemplate } from "./utils.mjs";
 
 const FAVORITES_KEY = "sleepOutside:favorites";
+
+// Map product IDs to their individual detail pages
+function getProductPage(productId) {
+  const productPages = {
+    "880RR": "marmot-ajax-3.html",
+    "344YJ": "cedar-ridge-rimrock-2.html",
+    "985PR": "northface-alpine-3.html",
+    "985RF": "northface-talus-4.html",
+    "989CG": "northface-talus-4.html",
+    "880RT": "marmot-ajax-2.html",
+  };
+
+  return productPages[productId] || "index.html";
+}
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -44,6 +59,7 @@ export default class ProductList {
         "aria-label",
         isFavorite ? "Remove from favorites" : "Add to favorites"
       );
+      button.setAttribute("aria-pressed", isFavorite);
     });
   }
 
@@ -74,14 +90,16 @@ export default class ProductList {
           aria-pressed="${isFavorite}"
         >${isFavorite ? "♥" : "♡"}</button>
 
-        <a href="${import.meta.env.BASE_URL}product_pages/index.html?product=${product.Id}">
+<a href="${import.meta.env.BASE_URL}product_pages/${getProductPage(product.Id)}?product=${product.Id}">
           <img
-            src="${import.meta.env.BASE_URL}${product.Image.replace("../images/", "images/")}" onerror="this.onerror=null; this.src='${import.meta.env.BASE_URL}images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg';"
+            src="${import.meta.env.BASE_URL}${product.Image.replace("../images/", "images/")}"
+            onerror="this.onerror=null; this.src='${import.meta.env.BASE_URL}images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg';"
             alt="${product.Name}"
           />
           <h3>${product.Brand.Name}</h3>
           <h2>${product.NameWithoutBrand}</h2>
         </a>
+
         <p class="product-card__price">$${product.FinalPrice}</p>
       </li>
     `;
