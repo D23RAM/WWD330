@@ -1,3 +1,4 @@
+
 name: Deploy SleepOutside
 
 on:
@@ -17,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_SERVER_URL: https://wdd330-backend-osp8.onrender.com/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
