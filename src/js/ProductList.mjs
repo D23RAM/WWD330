@@ -3,20 +3,6 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 const FAVORITES_KEY = "sleepOutside:favorites";
 
-// Map product IDs to their individual detail pages
-function getProductPage(productId) {
-  const productPages = {
-    "880RR": "marmot-ajax-3.html",
-    "344YJ": "cedar-ridge-rimrock-2.html",
-    "985PR": "northface-alpine-3.html",
-    "985RF": "northface-talus-4.html",
-    "989CG": "northface-talus-4.html",
-    "880RT": "marmot-ajax-2.html",
-  };
-
-  return productPages[productId] || "index.html";
-}
-
 export default class ProductList {
   constructor(category, dataSource, listElement) {
     this.category = category;
@@ -25,7 +11,7 @@ export default class ProductList {
   }
 
   async init() {
-    const products = await this.dataSource.getData();
+    const products = await this.dataSource.getData(this.category);
     this.renderList(products);
 
     this.listElement.addEventListener("click", (event) => {
@@ -90,10 +76,9 @@ export default class ProductList {
           aria-pressed="${isFavorite}"
         >${isFavorite ? "♥" : "♡"}</button>
 
-<a href="${import.meta.env.BASE_URL}product_pages/${getProductPage(product.Id)}?product=${product.Id}">
+        <a href="${import.meta.env.BASE_URL}product_pages/northface-alpine-3.html?product=${product.Id}">
           <img
-            src="${import.meta.env.BASE_URL}${product.Image.replace("../images/", "images/")}"
-            onerror="this.onerror=null; this.src='${import.meta.env.BASE_URL}images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg';"
+            src="${product.Images.PrimaryMedium}"
             alt="${product.Name}"
           />
           <h3>${product.Brand.Name}</h3>

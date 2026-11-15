@@ -1,27 +1,29 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Home</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
-    
     <header class="divider"></header>
-   
+
     <main class="divider">
       <div class="hero">
         <img
-          src="/images/banner-sm.jpg"
-          srcset="images/banner-sm.jpg 500w, images/banner.jpg"
-          alt="image of a high mountain lake"
+          src="./images/banner-sm.jpg"
+          srcset="./images/banner-sm.jpg 500w, ./images/banner.jpg"
+          alt="Image of a high mountain lake"
         />
+
         <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+          <img src="./images/noun_Tent_2517.svg" alt="Tent image for logo" />
           <div>Sleep<span class="highlight">Outside</span></div>
         </div>
+
         <div class="mission">
           <p>
             Our mission is to provide you with everything you need to sleep
@@ -31,60 +33,83 @@
       </div>
 
       <section class="products">
-        <h2>Top Products</h2>
+        <h2>Shop by Category</h2>
+
         <ul class="product-list">
+          <!-- Tents -->
           <li class="product-card">
-            <a href="product_pages/index.html?product=880RR">
+            <a href="./product_listing/?category=tents">
               <img
-                src="images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg"
-                alt="Marmot Ajax tent"
+                src="./images/noun_Tent_2517.svg"
+                alt="Camping tent"
               />
-              <h3 class="card__brand">Marmot</h3>
-              <h2 class="card__name">Ajax Tent - 3-Person, 3-Season</h2>
-              <p class="product-card__price">$199.99</p>
+              <h3 class="card__brand">Explore the outdoors</h3>
+              <h2 class="card__name">Tents</h2>
             </a>
           </li>
+
+          <!-- Backpacks -->
           <li class="product-card">
-            <a href="product_pages/index.html?product=985RF">
+            <a href="./product_listing/?category=backpacks">
               <img
-                src="images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg"
-                alt="Talus Tent - 4-Person, 3-Season"
+                src="./images/noun_Backpack_65884.svg"
+                alt="Backpack"
               />
-              <h3 class="card__brand">The North Face</h3>
-              <h2 class="card__name">Talus Tent - 4-Person, 3-Season</h2>
-              <p class="product-card__price">$199.99</p>
+              <h3 class="card__brand">Carry your essentials</h3>
+              <h2 class="card__name">Backpacks</h2>
             </a>
           </li>
+
+          <!-- Sleeping Bags -->
           <li class="product-card">
-            <a href="product_pages/index.html?product=985PR">
-              <img
-                src="images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg"
-                alt="Alpine Guide Tent - 3-Person, 4-Season"
-              />
-              <h3 class="card__brand">The North Face</h3>
-              <h2 class="card__name">Alpine Guide Tent - 3-Person, 4-Season</h2>
-              <p class="product-card__price">$349.99</p>
+            <a href="./product_listing/?category=sleeping-bags">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Sleeping bag"
+              >
+                <rect x="25" y="8" width="50" height="84" rx="18"
+                  fill="#6b8e73" />
+                <rect x="32" y="15" width="36" height="20" rx="9"
+                  fill="#dce8d9" />
+                <path d="M25 48 H75 M25 70 H75"
+                  stroke="#ffffff" stroke-width="3" />
+              </svg>
+              <h3 class="card__brand">Stay warm and comfortable</h3>
+              <h2 class="card__name">Sleeping Bags</h2>
             </a>
           </li>
+
+          <!-- Hammocks -->
           <li class="product-card">
-            <a href="product_pages/index.html?product=344YJ">
-              <img
-                src="images/tents/cedar-ridge-rimrock-tent-2-person-3-season-in-rust-clay~p~344yj_01~320.jpg"
-                alt="Rimrock Tent - 2-Person, 3-Season"
-              />
-              <h3 class="card__brand">Cedar Ridge</h3>
-              <h2 class="card__name">Rimrock Tent - 2-Person, 3-Season</h2>
-              <p class="product-card__price">$69.99</p>
+            <a href="./product_listing/?category=hammocks">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Hammock"
+              >
+                <path d="M10 10 V90 M90 10 V90"
+                  stroke="#795548" stroke-width="5" />
+                <path d="M10 22 Q50 92 90 22"
+                  fill="none" stroke="#6b8e73" stroke-width="9" />
+                <path d="M10 22 L25 42 M90 22 L75 42"
+                  stroke="#795548" stroke-width="3" />
+              </svg>
+              <h3 class="card__brand">Relax under the open sky</h3>
+              <h2 class="card__name">Hammocks</h2>
             </a>
           </li>
         </ul>
       </section>
     </main>
-   <footer></footer>
-   <script type="module">
-  import { loadHeaderFooter } from "./js/utils.mjs";
 
-  loadHeaderFooter();
-</script>
+    <footer></footer>
+
+    <script type="module">
+      import { loadHeaderFooter } from "./js/utils.mjs";
+      loadHeaderFooter();
+    </script>
   </body>
 </html>
