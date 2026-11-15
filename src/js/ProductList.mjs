@@ -77,10 +77,17 @@ export default class ProductList {
         >${isFavorite ? "♥" : "♡"}</button>
 
         <a href="${import.meta.env.BASE_URL}product_pages/northface-alpine-3.html?product=${product.Id}">
-          <img
-            src="${product.Images.PrimaryMedium}"
-            alt="${product.Name}"
-          />
+         <img
+  src="${product.Images.PrimaryMedium}"
+  srcset="
+    ${product.Images.PrimarySmall} 80w,
+    ${product.Images.PrimaryMedium} 160w,
+    ${product.Images.PrimaryLarge} 320w
+  "
+  sizes="(max-width: 600px) 45vw, 250px"
+  alt="${product.Name}"
+  loading="lazy"
+/>
           <h3>${product.Brand.Name}</h3>
           <h2>${product.NameWithoutBrand}</h2>
         </a>
