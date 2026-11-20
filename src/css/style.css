@@ -1,6 +1,8 @@
+
 :root {
   --font-body: Arial, Helvetica, sans-serif;
   --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -75,7 +77,6 @@ p {
   font-size: var(--small-font);
   width: 110px;
   height: 80px;
-
   flex-direction: column;
   align-items: flex-end;
   box-shadow: 1px 1px 4px var(--light-grey);
@@ -108,6 +109,15 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--tertiary-color);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 .divider {
@@ -125,10 +135,12 @@ button {
 
 .cart svg {
   width: 25px;
+  transition: fill 0.3s ease, transform 0.3s ease;
 }
 
 .cart:hover svg {
   fill: gray;
+  transform: scale(1.1);
 }
 
 /* End cart icon styles */
@@ -170,11 +182,24 @@ button {
 
 /* Styles for product lists */
 .product-card {
+  position: relative;
   flex: 1 1 45%;
   margin: 0.25em;
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+
+  /* CSS animation */
+  animation: fadeIn 0.5s ease-in-out;
+
+  /* CSS transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Product card hover effect */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .product-card h2,
@@ -192,6 +217,19 @@ button {
 }
 
 /* End product list card */
+
+/* Product fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .product-detail {
   padding: 1em;
@@ -261,11 +299,8 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
-/* Favorites Feature */
-.product-card {
-  position: relative;
-}
 
+/* Favorites Feature */
 .favorite-button {
   position: absolute;
   top: 10px;
@@ -280,6 +315,10 @@ footer {
   font-size: 26px;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  /* Smooth favorite button transitions */
+  transition: transform 0.3s ease, color 0.3s ease,
+    background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .favorite-button.is-favorite {
@@ -288,4 +327,304 @@ footer {
 
 .favorite-button:hover {
   transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.favorite-button:active {
+  transform: scale(0.95);
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =================================
+   SLEEPOUTSIDE - VISUAL IMPROVEMENTS
+================================= */
+
+/* Updated color palette */
+:root {
+  --primary-color: #d99a5b;
+  --secondary-color: #526b45;
+  --tertiary-color: #a35420;
+  --light-grey: #e8e5df;
+  --dark-grey: #30332e;
+
+  --background-color: #faf9f6;
+  --card-background: #ffffff;
+}
+
+/* Overall page */
+body {
+  background-color: var(--background-color);
+  color: var(--dark-grey);
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 3px solid var(--primary-color);
+  gap: 1rem;
+}
+
+/* Main logo */
+.logo {
+  align-items: center;
+  width: auto;
+  height: 60px;
+  font-size: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+.logo a {
+  color: var(--dark-grey);
+  text-decoration: none;
+}
+
+.logo img {
+  object-fit: contain;
+}
+
+/* Cart */
+.cart {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart a {
+  color: var(--tertiary-color);
+  font-weight: 600;
+}
+
+/* Hero section */
+.hero {
+  overflow: hidden;
+}
+
+.hero > img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Mission statement */
+.mission {
+  top: 1.5rem;
+  background-color: rgba(35, 40, 34, 0.78);
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+.mission p {
+  width: min(750px, 90%);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+/* Centered hero logo */
+.hero .logo--square {
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Section headings */
+.products {
+  margin-top: 2.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.products h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-grey);
+}
+
+/* Product cards */
+.product-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  padding: 0.75rem;
+  overflow: hidden;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-card h2,
+.product-card h3 {
+  color: var(--dark-grey);
+}
+
+.card__brand {
+  color: #777;
+}
+
+/* Buttons */
+button {
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: var(--tertiary-color);
+}
+
+/* Favorite button - preserve its circular design */
+.favorite-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background-color: white;
+  line-height: 1;
+}
+
+.favorite-button:hover {
+  background-color: #f5f1eb;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  background-color: #30332e;
+  color: white;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  header {
+    padding: 0.75rem;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .hero > img {
+    height: 280px;
+  }
+
+  .mission p {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  .products {
+    padding: 0.75rem;
+  }
+
+  .products h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* =================================
+   HOMEPAGE CATEGORY CARDS
+================================= */
+
+/* Category grid */
+.hero + .products .product-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Individual category cards */
+.hero + .products .product-card {
+  max-width: none;
+  margin: 0;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #e8e5df;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Make the entire card link consistent */
+.hero + .products .product-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+/* Give every category icon the same space */
+.hero + .products .product-card img,
+.hero + .products .product-card svg {
+  display: block;
+  width: 100%;
+  height: 170px;
+  padding: 1rem;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+/* Category descriptions */
+.hero + .products .card__brand {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #777;
+  margin: 0.5rem 0 0.25rem;
+}
+
+/* Category names */
+.hero + .products .card__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Hover effect */
+.hero + .products .product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive category layout */
+@media screen and (max-width: 700px) {
+  .hero + .products .product-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero + .products .product-card img,
+  .hero + .products .product-card svg {
+    height: 130px;
+  }
+
+  .hero + .products .card__name {
+    font-size: 1.1rem;
+  }
 }
