@@ -89,3 +89,9 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement);
+  return Object.fromEntries(formData.entries());
+}

@@ -20,11 +20,37 @@ if (cartItems.length === 0) {
 
   checkoutForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    
 
     if (!checkoutForm.reportValidity()) return;
 
-    alert("Order submission will be connected next!");
+    const zip = checkoutForm.elements.zip.value.trim();
 
-    setLocalStorage(CART_KEY, []);
+    if (!zip) {
+      alert("Please enter your zip code.");
+      return;
+    }
+
+    try {
+      const response = await checkout.checkout(checkoutForm);
+
+      console.log("Order response:", response);
+
+      alert("Your order was submitted successfully!");
+
+      setLocalStorage(CART_KEY, []);
+
+      summary.innerHTML = `
+        <h2>Thank you for your order!</h2>
+        <p>Your order has been submitted successfully.</p>
+        <a href="../index.html">Continue Shopping</a>
+      `;
+
+      checkoutForm.style.display = "none";
+
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("Checkout error: " + error.message);
+    }
   });
 }

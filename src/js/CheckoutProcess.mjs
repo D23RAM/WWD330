@@ -1,5 +1,10 @@
 
-import { getLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  formDataToJSON,
+} from "./utils.mjs";
+
+import ExternalServices from "./ExternalServices.mjs";
 
 const CART_KEY = "so-cart";
 
@@ -8,6 +13,8 @@ export default class CheckoutProcess {
     this.form = form;
     this.summary = summary;
     this.cart = getLocalStorage(CART_KEY) || [];
+
+    this.externalServices = new ExternalServices();
 
     this.subtotal = 0;
     this.tax = 0;
@@ -58,5 +65,28 @@ export default class CheckoutProcess {
       <hr>
       <h3>Order Total: $${this.orderTotal.toFixed(2)}</h3>
     `;
+  }
+
+  packageItems(items) {
+    return items.map((item) => ({
+      id: item.Id,
+      name: `${item.Brand?.Name || ""} ${item.NameWithoutBrand || item.Name}`.trim(),
+      price: item.FinalPrice,
+      quantity: item.Quantity || 1,
+    }));
+  }
+
+  async checkout(form) {
+    this.calculateOrderTotals();
+
+    const order = formDataToJSON(form);
+
+    order.orderDate = new Date().toISOString();
+    order.orderTotal = this.orderTotal.toFixed(2);
+    order.shipping = this.shipping;
+    order.tax = this.tax.toFixed(2);
+    order.items = this.packageItems(this.cart);
+
+    return await this.externalServices.checkout(order);
   }
 }
