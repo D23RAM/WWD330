@@ -29,27 +29,44 @@
 
         <h2>Customer Information</h2>
 
-        <form id="checkout-form">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" required />
+        
+<form id="checkout-form">
+  <h3>Customer Information</h3>
 
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" required />
+  <label for="fname">First Name</label>
+  <input type="text" id="fname" name="fname" autocomplete="given-name" required />
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+  <label for="lname">Last Name</label>
+  <input type="text" id="lname" name="lname" autocomplete="family-name" required />
 
-          <label for="street">Street Address</label>
-          <input type="text" id="street" name="street" required />
+  <h3>Shipping Address</h3>
 
-          <label for="city">City</label>
-          <input type="text" id="city" name="city" required />
+  <label for="street">Street Address</label>
+  <input type="text" id="street" name="street" autocomplete="street-address" required />
 
-          <label for="state">State / District</label>
-          <input type="text" id="state" name="state" required />
+  <label for="city">City</label>
+  <input type="text" id="city" name="city" autocomplete="address-level2" required />
 
-          <button type="submit">Place Order</button>
-        </form>
+  <label for="state">State / District</label>
+  <input type="text" id="state" name="state" autocomplete="address-level1" required />
+
+  <label for="zip">Zip Code</label>
+  <input type="text" id="zip" name="zip" autocomplete="postal-code" required />
+
+  <h3>Payment Information</h3>
+
+  <label for="cardNumber">Credit Card Number</label>
+  <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" required />
+
+  <label for="expiration">Expiration Date</label>
+  <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required />
+
+  <label for="code">Security Code</label>
+  <input type="text" id="code" name="code" inputmode="numeric" required />
+
+  <button type="submit">Place Order</button>
+</form>
+
       </section>
     </main>
 
