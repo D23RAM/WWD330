@@ -105,11 +105,60 @@
       </section>
     </main>
 
+<!-- First-time visitor giveaway modal -->
+<div id="giveaway-modal" class="giveaway-modal" role="dialog" aria-modal="true" aria-labelledby="giveaway-title" aria-describedby="giveaway-description" hidden>
+  <div class="giveaway-content">
+
+    <button
+      type="button"
+      class="giveaway-close"
+      id="giveaway-close"
+      aria-label="Close giveaway"
+    >
+      &times;
+    </button>
+
+    <p class="giveaway-tag">SPECIAL WELCOME OFFER</p>
+
+    <h2 id="giveaway-title">Adventure Awaits!</h2>
+
+    <p id="giveaway-description">
+      Join the SleepOutside community and get a chance to win
+      an outdoor adventure package!
+    </p>
+
+    <div class="giveaway-prize">
+      <span class="giveaway-icon">🏕️</span>
+      <h3>Win an Outdoor Adventure Package!</h3>
+      <p>
+        Register with SleepOutside for a chance to win
+        camping gear to make your next adventure unforgettable.
+      </p>
+    </div>
+
+    <a href="./register/" class="giveaway-register">
+      Register Now
+    </a>
+
+    <button
+      type="button"
+      class="giveaway-dismiss"
+      id="giveaway-dismiss"
+    >
+      Maybe later
+    </button>
+
+  </div>
+</div>
+
     <footer></footer>
 
-    <script type="module">
-      import { loadHeaderFooter } from "./js/utils.mjs";
-      loadHeaderFooter();
-    </script>
+  <script type="module">
+  import { loadHeaderFooter } from "./js/utils.mjs";
+  import initGiveaway from "./js/giveaway.mjs";
+
+  loadHeaderFooter();
+  initGiveaway();
+</script>
   </body>
 </html>

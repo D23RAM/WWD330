@@ -639,3 +639,181 @@ footer {
   border-radius: 5px;
   text-align: center;
 }
+
+
+
+/* =================================
+   FIRST-TIME VISITOR GIVEAWAY MODAL
+================================= */
+
+.giveaway-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.giveaway-modal[hidden] {
+  display: none;
+}
+
+.giveaway-content {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.giveaway-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.giveaway-tag {
+  color: #6b8e73;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.giveaway-content h2 {
+  font-size: 2rem;
+  margin: 0.75rem 0;
+}
+
+.giveaway-content > p {
+  line-height: 1.6;
+}
+
+.giveaway-prize {
+  background: #f3f5f0;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.giveaway-icon {
+  font-size: 2.5rem;
+}
+
+.giveaway-prize h3 {
+  margin: 0.5rem 0;
+}
+
+.giveaway-prize p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.giveaway-register {
+  display: block;
+  padding: 0.9rem;
+  background: #6b8e73;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.giveaway-register:hover {
+  background: #526f59;
+}
+
+.giveaway-dismiss {
+  margin-top: 1rem;
+  border: none;
+  background: none;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .giveaway-content {
+    padding: 2rem 1.25rem;
+  }
+}
+
+
+
+/* =================================
+   REGISTRATION PAGE
+================================= */
+
+.register-page {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.register-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.register-page > p {
+  text-align: center;
+  line-height: 1.6;
+}
+
+#register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+#register-form label {
+  font-weight: bold;
+}
+
+#register-form input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font: inherit;
+}
+
+#register-form button {
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+  background: #6b8e73;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#register-form button:hover {
+  background: #526f59;
+}
+
+#register-message {
+  color: #526f59;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .register-page {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem;
+  }
+}

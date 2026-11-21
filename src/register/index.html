@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | SleepOutside</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <header class="divider"></header>
+
+  <main class="register-page">
+    <h1>Join SleepOutside!</h1>
+    <p>
+      Create an account and enter for a chance to win
+      our Outdoor Adventure Package!
+    </p>
+
+    <form id="register-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required minlength="8" />
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <p id="register-message"></p>
+    <a href="../">Back to Home</a>
+  </main>
+
+  <footer></footer>
+
+  <script type="module">
+    import { loadHeaderFooter } from "../js/utils.mjs";
+    loadHeaderFooter();
+
+    document.querySelector("#register-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#register-message").textContent =
+        "Thank you for your interest in SleepOutside!";
+    });
+  </script>
+</body>
+</html>
