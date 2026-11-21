@@ -3,7 +3,7 @@ name: Deploy SleepOutside
 
 on:
   push:
-    branches: [ds--individual3]
+    branches: [ds--individual4]
   workflow_dispatch:
 
 permissions:
