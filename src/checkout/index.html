@@ -29,44 +29,99 @@
 
         <h2>Customer Information</h2>
 
-        
-<form id="checkout-form">
-  <h3>Customer Information</h3>
+        <form id="checkout-form">
+          <h3>Customer Information</h3>
 
-  <label for="fname">First Name</label>
-  <input type="text" id="fname" name="fname" autocomplete="given-name" required />
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            autocomplete="given-name"
+            required
+          />
 
-  <label for="lname">Last Name</label>
-  <input type="text" id="lname" name="lname" autocomplete="family-name" required />
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            autocomplete="family-name"
+            required
+          />
 
-  <h3>Shipping Address</h3>
+          <h3>Shipping Address</h3>
 
-  <label for="street">Street Address</label>
-  <input type="text" id="street" name="street" autocomplete="street-address" required />
+          <label for="street">Street Address</label>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            autocomplete="street-address"
+            required
+          />
 
-  <label for="city">City</label>
-  <input type="text" id="city" name="city" autocomplete="address-level2" required />
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            autocomplete="address-level2"
+            required
+          />
 
-  <label for="state">State / District</label>
-  <input type="text" id="state" name="state" autocomplete="address-level1" required />
+          <label for="state">State / District</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            autocomplete="address-level1"
+            required
+          />
 
-  <label for="zip">Zip Code</label>
-  <input type="text" id="zip" name="zip" autocomplete="postal-code" required />
+          <label for="zip">Zip Code</label>
+          <input
+            type="text"
+            id="zip"
+            name="zip"
+            autocomplete="postal-code"
+            required
+          />
 
-  <h3>Payment Information</h3>
+          <h3>Payment Information</h3>
 
-  <label for="cardNumber">Credit Card Number</label>
-  <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" required />
+          <label for="cardNumber">Credit Card Number</label>
+          <input
+            type="text"
+            id="cardNumber"
+            name="cardNumber"
+            inputmode="numeric"
+            autocomplete="cc-number"
+            required
+          />
 
-  <label for="expiration">Expiration Date</label>
-  <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required />
+          <label for="expiration">Expiration Date</label>
+          <input
+            type="text"
+            id="expiration"
+            name="expiration"
+            placeholder="MM/YY"
+            autocomplete="cc-exp"
+            required
+          />
 
-  <label for="code">Security Code</label>
-  <input type="text" id="code" name="code" inputmode="numeric" required />
+          <label for="code">Security Code</label>
+          <input
+            type="text"
+            id="code"
+            name="code"
+            inputmode="numeric"
+            autocomplete="cc-csc"
+            required
+          />
 
-  <button type="submit">Place Order</button>
-</form>
-
+          <button type="submit">Place Order</button>
+        </form>
       </section>
     </main>
 

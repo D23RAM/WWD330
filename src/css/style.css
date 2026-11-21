@@ -628,3 +628,14 @@ footer {
     font-size: 1.1rem;
   }
 }
+
+
+.alert-message {
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #ffe0e0;
+  color: #900;
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  text-align: center;
+}

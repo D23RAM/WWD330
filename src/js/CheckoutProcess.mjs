@@ -76,7 +76,9 @@ export default class CheckoutProcess {
     }));
   }
 
-  async checkout(form) {
+ 
+async checkout(form) {
+  try {
     this.calculateOrderTotals();
 
     const order = formDataToJSON(form);
@@ -88,5 +90,11 @@ export default class CheckoutProcess {
     order.items = this.packageItems(this.cart);
 
     return await this.externalServices.checkout(order);
+
+  } catch (error) {
+    console.error("CheckoutProcess error:", error);
+    throw error;
   }
+}
+
 }

@@ -1,5 +1,10 @@
 
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  alertMessage,
+} from "./utils.mjs";
+
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
 const CART_KEY = "so-cart";
@@ -14,20 +19,20 @@ if (cartItems.length === 0) {
     <p>Your cart is empty.</p>
     <a href="../index.html">Continue Shopping</a>
   `;
+
   checkoutForm.style.display = "none";
 } else {
   const checkout = new CheckoutProcess(checkoutForm, summary);
 
   checkoutForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
 
     if (!checkoutForm.reportValidity()) return;
 
     const zip = checkoutForm.elements.zip.value.trim();
 
     if (!zip) {
-      alert("Please enter your zip code.");
+      alertMessage("Please enter your zip code.");
       return;
     }
 
@@ -36,21 +41,19 @@ if (cartItems.length === 0) {
 
       console.log("Order response:", response);
 
-      alert("Your order was submitted successfully!");
-
       setLocalStorage(CART_KEY, []);
 
-      summary.innerHTML = `
-        <h2>Thank you for your order!</h2>
-        <p>Your order has been submitted successfully.</p>
-        <a href="../index.html">Continue Shopping</a>
-      `;
-
-      checkoutForm.style.display = "none";
+      window.location.href = "./success.html";
 
     } catch (error) {
       console.error("Checkout error:", error);
-      alert("Checkout error: " + error.message);
+
+      const errorMessage =
+        typeof error.message === "string"
+          ? error.message
+          : JSON.stringify(error.message);
+
+      alertMessage("Checkout error: " + errorMessage);
     }
   });
 }
