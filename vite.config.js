@@ -19,10 +19,15 @@ export default defineConfig({
           "src/product_pages/northface-alpine-3.html"
         ),
         productListing: resolve(
-          __dirname,
-          "src/product_listing/index.html"
-        ),
+  __dirname,
+  "src/product_listing/index.html"
+),
+register: resolve(
+  __dirname,
+  "src/register/index.html"
+),
       },
     },
   },
 });
+
